@@ -1,10 +1,13 @@
-version: '2'
+version: "3"
 services:
-  db:
-    image: mysql:5.7
-    volumes:
-      - ./db/mysql_data:/var/lib/mysql
-    environment:
-      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
-    ports:
-      - "10000:3306"
+  ruby:
+    build:
+      context: ./ruby
+  python:
+    build:
+      context: ./python
+  gcp:
+    build:
+      context: ./gcp
+
+
