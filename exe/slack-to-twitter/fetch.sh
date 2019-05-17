@@ -14,7 +14,7 @@ CHANNEL=CG1JV3ETU \
   "$api_dir"/slack/channel-message.sh | jq '.messages' \
   | tee "$base_dir"/log/slack-message.json
 
-count=$("$base_dir"/log/slack-message.json | jq length)
+count=$(cat "$base_dir"/log/slack-message.json | jq length)
 
 if [ $count -lt 0 ]; then
   cp "$base_dir"/log/slack-message.json \
