@@ -1,5 +1,3 @@
-source ~/.secret/setting.sh
-
 shopt -s expand_aliases
 
 if [ $(uname -s) = "Darwin" ]; then
