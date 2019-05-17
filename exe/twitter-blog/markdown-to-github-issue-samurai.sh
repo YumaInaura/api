@@ -14,7 +14,7 @@ REPOSITORY=${REPOSITORY:-YumaInaura}
 export OWNER=YumaInaura \
        REPOSITORY="$REPOSITORY" \
        API_KEY="$github_api_key" \
-       TITLE="とあるRailsエンジニアが再就職活動を共有したがっているようだ ${jst_date} on Twitter" \
+       TITLE="とあるRailsエンジニアのリモートワークトライアル ${jst_date} on Twitter" \
        FILE="${log_dir}/samurai.md" \
        LABELS=medium,hatena,japanese,twitter,qiita
 
