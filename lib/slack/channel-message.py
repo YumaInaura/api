@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # https://api.slack.com/methods/channels.history/test
 
 import requests, os, json
