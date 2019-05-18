@@ -6,6 +6,8 @@ base_dir=$(dirname "$0")
 source "${base_dir}/../../setting.sh"
 source "${base_dir}/../twitter-setting.sh"
 
+github_api_key=$(cat ~/.secret/github-api-key)
+
 history_dir="$base_dir"/history
 mkdir -p "$history_dir"
 
@@ -33,7 +35,7 @@ title=$(cat "$log_dir"/github-issue-title-"$TWITTER_JA_USER_NAME".txt)
 
 export OWNER=YumaInaura \
        REPOSITORY="$REPOSITORY" \
-       API_KEY="$GITHUB_API_KEY" \
+       API_KEY="$github_api_key" \
        TITLE="$title" \
        FILE="${log_dir}/github-issue-body-all-"$TWITTER_JA_USER_NAME".md" \
        LABELS=medium,hatena,japanese,twitter,en-translate
