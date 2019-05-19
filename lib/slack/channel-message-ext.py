@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import requests, os, json, sys, re
+import requests, os, json, sys, re, base64
 
 messages = json.loads(sys.stdin.read())
 
@@ -16,7 +16,12 @@ for message in messages:
        "https://files.slack.com/files-pri/\\1-\\2/{name}?pub_secret=\\3".format(**file), \
        file.get('permalink_public'))
 
-    ext['files'].append({ "url_public" : public_file_path })
+    public_file_base64 = base64.b64encode(requests.get(public_file_path).content).decode()
+
+    ext['files'].append({
+      "url_public" : public_file_path,
+      "base64" : public_file_base64,
+    })
 
   message['ext'] = ext
 
