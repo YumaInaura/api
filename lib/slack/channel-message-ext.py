@@ -13,7 +13,7 @@ for message in messages:
 
   for file in message.get('files', []):
     public_file_path = re.sub(r'https://slack-files.com/(\w+)-(\w+)-(\w+)', \
-       "https://files.slack.com/files-pri/\\1-{name}\\2/?pub_secret=\\3".format(**file), \
+       "https://files.slack.com/files-pri/\\1-\\2/{name}?pub_secret=\\3".format(**file), \
        file.get('permalink_public'))
 
     ext['files'].append({ "url_public" : public_file_path })
