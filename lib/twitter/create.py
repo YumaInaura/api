@@ -23,6 +23,9 @@ for input_data in input_datas:
     "status" : message
   }
 
+  if input_data.get('media_ids'):
+    params['media_ids'] = ','.join(input_data.get('media_ids'))
+
   if 'in_reply_to_status_id' in input_data:
     params['in_reply_to_status_id'] = input_data['in_reply_to_status_id']
 
