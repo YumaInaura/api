@@ -14,6 +14,8 @@ REPOSITORY=${REPOSITORY:-YumaInaura}
 
 # title=$(cat "$log_dir"/user-profile-yumainaura.json| jq -r '.name')
 
+github_api_key=$(cat ~/.secret/github-api-key)
+
 export OWNER=YumaInaura \
        REPOSITORY="$REPOSITORY" \
        API_KEY="$github_api_key" \
