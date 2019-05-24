@@ -16,7 +16,12 @@ cat "$log_dir"/profile-seed-"$TWITTER_JA_USER_NAME".json \
   | uniq \
   > "$log_dir"/quoted-user-screen-names-"$TWITTER_JA_USER_NAME".txt
 
-if [ -f "$log_dir"/quoted-user-screen-names-"$TWITTER_JA_USER_NAME".txt ]; then
+"$api_dir"/twitter/user-show.sh "$TWITTER_JA_USER_NAME" \
+  | "$api_dir"/twitter/markdown-user.py \
+  >> "$log_dir"/all-user-profiles-"$TWITTER_JA_USER_NAME".md
+
+if [ -s "$log_dir"/quoted-user-screen-names-"$TWITTER_JA_USER_NAME".txt ]; then
+
   echo -e "# 引用させていただいた方々\n\n" \
     >> "$log_dir"/all-user-profiles-"$TWITTER_JA_USER_NAME".md
 
