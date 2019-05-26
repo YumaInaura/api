@@ -16,12 +16,13 @@ for message in messages:
        "https://files.slack.com/files-pri/\\1-\\2/{name}?pub_secret=\\3".format(**file), \
        file.get('permalink_public'))
 
-    public_file_base64 = base64.b64encode(requests.get(public_file_path).content).decode()
-
-    ext['files'].append({
-      "url_public" : public_file_path,
-      "base64" : public_file_base64,
-    })
+    if os.getenv('URL_TO_BASE64'):
+      public_file_base64 = base64.b64encode(requests.get(public_file_path).content).decode()
+  
+      ext['files'].append({
+        "url_public" : public_file_path,
+        "base64" : public_file_base64,
+      })
 
   message['ext'] = ext
 
