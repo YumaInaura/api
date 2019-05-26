@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import json, config, os, re, twitterauth, sys, requests, base64
+import json, config, os, re, ..twitterauth, sys, requests, base64
 
 url = sys.argv[1]
 
