@@ -7,7 +7,7 @@ import requests, os, json, sys
 
 url = "https://slack.com/api/channels.invite"
 
-members = json.dumps(sys.stdin.read())
+members = json.loads(sys.stdin.read())
 
 for member in members:
   params = {
